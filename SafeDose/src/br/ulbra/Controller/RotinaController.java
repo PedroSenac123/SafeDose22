@@ -13,11 +13,14 @@ public class RotinaController {
     }
 
     public List<Rotina> listarPorUsuario(int usuarioId) {
-        return dao.listarPorUsuario(usuarioId);
+        return dao.listarNaoTomados(usuarioId);
+    }
+    public List<Rotina> listarTomados (int usuarioId){
+        return dao.listarTomados(usuarioId);
     }
 
-    public void excluir(int idMedicamento) {
+    public void tomado(int idMedicamento) {
         RotinaDAO dao = new RotinaDAO();
-        dao.excluir(idMedicamento);
+        dao.marcarComoTomado(idMedicamento);
     }
 }
