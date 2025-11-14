@@ -71,6 +71,7 @@ SafeDose/
 │   │   └── PacientecadastroView.java 
 │   │   └── PerfilPacienteView.java 
 │   │   └── RotinasView.java
+│   │   └── TomadosView.java
 ├── lib/                             # Bibliotecas externas
 │   └── Driver JBDC do MySQL - mysql-connector-java-5.1.23-bin.jar
 │   └── Layout Absoluto -AbsoluteLayout.jar
