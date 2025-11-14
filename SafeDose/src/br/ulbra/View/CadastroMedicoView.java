@@ -120,8 +120,6 @@ public class CadastroMedicoView extends javax.swing.JFrame {
         jLabel2.setText("ID:");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
-        txtId.setBackground(new java.awt.Color(255, 255, 255));
-        txtId.setForeground(new java.awt.Color(0, 0, 0));
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdActionPerformed(evt);
@@ -134,7 +132,6 @@ public class CadastroMedicoView extends javax.swing.JFrame {
         jLabel3.setText("Médico:");
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
-        txtEspecialidade.setBackground(new java.awt.Color(255, 255, 255));
         txtEspecialidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEspecialidadeActionPerformed(evt);
@@ -147,9 +144,6 @@ public class CadastroMedicoView extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email:");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
-
-        txtNome.setBackground(new java.awt.Color(255, 255, 255));
-        txtNome.setForeground(new java.awt.Color(0, 0, 0));
         jPanel4.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 250, -1));
 
         btnSalvar.setBackground(new java.awt.Color(0, 0, 0));
@@ -185,8 +179,6 @@ public class CadastroMedicoView extends javax.swing.JFrame {
         });
         jPanel4.add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, -1));
 
-        tbMedico.setBackground(new java.awt.Color(255, 255, 255));
-        tbMedico.setForeground(new java.awt.Color(0, 0, 0));
         tbMedico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -222,8 +214,6 @@ public class CadastroMedicoView extends javax.swing.JFrame {
         });
         jPanel4.add(btnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, -1, -1));
 
-        txtCRM.setBackground(new java.awt.Color(255, 255, 255));
-        txtCRM.setForeground(new java.awt.Color(0, 0, 0));
         txtCRM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCRMActionPerformed(evt);
@@ -231,8 +221,6 @@ public class CadastroMedicoView extends javax.swing.JFrame {
         });
         jPanel4.add(txtCRM, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 250, -1));
 
-        txtTelefone.setBackground(new java.awt.Color(255, 255, 255));
-        txtTelefone.setForeground(new java.awt.Color(0, 0, 0));
         txtTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefoneActionPerformed(evt);
@@ -240,8 +228,6 @@ public class CadastroMedicoView extends javax.swing.JFrame {
         });
         jPanel4.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 250, -1));
 
-        txtEmail.setBackground(new java.awt.Color(255, 255, 255));
-        txtEmail.setForeground(new java.awt.Color(0, 0, 0));
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
@@ -293,11 +279,14 @@ public class CadastroMedicoView extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 822, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 802, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
