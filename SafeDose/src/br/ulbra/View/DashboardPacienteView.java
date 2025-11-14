@@ -32,6 +32,7 @@ public class DashboardPacienteView extends javax.swing.JFrame {
         miPerfil = new javax.swing.JMenuItem();
         MenuRotinas = new javax.swing.JMenu();
         miRotinas = new javax.swing.JMenuItem();
+        miTomados = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,6 +57,14 @@ public class DashboardPacienteView extends javax.swing.JFrame {
             }
         });
         MenuRotinas.add(miRotinas);
+
+        miTomados.setText("Tomados");
+        miTomados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miTomadosActionPerformed(evt);
+            }
+        });
+        MenuRotinas.add(miTomados);
 
         jMenuBar1.add(MenuRotinas);
 
@@ -84,6 +93,11 @@ public class DashboardPacienteView extends javax.swing.JFrame {
         new RotinasView().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_miRotinasActionPerformed
+
+    private void miTomadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miTomadosActionPerformed
+        new TomadosView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_miTomadosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,5 +140,6 @@ public class DashboardPacienteView extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem miPerfil;
     private javax.swing.JMenuItem miRotinas;
+    private javax.swing.JMenuItem miTomados;
     // End of variables declaration//GEN-END:variables
 }

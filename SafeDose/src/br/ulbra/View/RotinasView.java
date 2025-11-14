@@ -22,9 +22,11 @@ public class RotinasView extends javax.swing.JFrame {
         try {
             RotinaController controller = new RotinaController();
             DefaultTableModel model = (DefaultTableModel) tbRotina.getModel();
-            model.setRowCount(0); // limpa a tabela
+            model.setRowCount(0); // Limpa a tabela
 
             int usuarioId = SessaoUsuario.getUsuarioLogado().getUsuarioId();
+
+            // Lista apenas os NÃO TOMADOS
             List<Rotina> lista = controller.listarPorUsuario(usuarioId);
 
             for (Rotina r : lista) {
@@ -44,10 +46,10 @@ public class RotinasView extends javax.swing.JFrame {
     public void setBotoes(int op) {
         switch (op) {
             case 1:
-                btnExcluir.setEnabled(true);
+                btnTomado.setEnabled(true);
                 break;
             default:
-                btnExcluir.setEnabled(false);
+                btnTomado.setEnabled(false);
 
         }
     }
@@ -67,7 +69,7 @@ public class RotinasView extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tbRotina = new javax.swing.JTable();
         btnListar = new javax.swing.JButton();
-        btnExcluir = new javax.swing.JButton();
+        btnTomado = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         txtMedicamento = new javax.swing.JTextField();
@@ -108,10 +110,10 @@ public class RotinasView extends javax.swing.JFrame {
             }
         });
 
-        btnExcluir.setText("TOMADO");
-        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+        btnTomado.setText("TOMADO");
+        btnTomado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirActionPerformed(evt);
+                btnTomadoActionPerformed(evt);
             }
         });
 
@@ -159,7 +161,7 @@ public class RotinasView extends javax.swing.JFrame {
                         .addGap(94, 94, 94)
                         .addComponent(btnListar)
                         .addGap(66, 66, 66)
-                        .addComponent(btnExcluir)
+                        .addComponent(btnTomado)
                         .addGap(29, 29, 29))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -203,7 +205,7 @@ public class RotinasView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnListar)
-                    .addComponent(btnExcluir)
+                    .addComponent(btnTomado)
                     .addComponent(btnLimpar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -241,31 +243,33 @@ public class RotinasView extends javax.swing.JFrame {
         limparCampos();
     }//GEN-LAST:event_btnLimparActionPerformed
 
-    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+    private void btnTomadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTomadoActionPerformed
         int selectedRow = tbRotina.getSelectedRow();
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(this, "Selecione um medicamento para marcar como tomado.");
             return;
         }
 
-        // Pega o ID do medicamento da tabela
         int idMedicamento = Integer.parseInt(tbRotina.getValueAt(selectedRow, 0).toString());
-        System.out.println("ID a excluir: " + idMedicamento);
-        int confirm = JOptionPane.showConfirmDialog(this,
-                "Deseja realmente marcar este medicamento como tomado (excluir da lista)?",
+
+        int confirm = JOptionPane.showConfirmDialog(
+                this,
+                "Deseja realmente marcar este medicamento como tomado?",
                 "Confirmar ação",
-                JOptionPane.YES_NO_OPTION);
+                JOptionPane.YES_NO_OPTION
+        );
 
         if (confirm == JOptionPane.YES_OPTION) {
+
             RotinaController controller = new RotinaController();
-            controller.excluir(idMedicamento); // <-- método que fará o DELETE
+            controller.tomado(idMedicamento);
 
             JOptionPane.showMessageDialog(this, "Medicamento marcado como tomado!");
             atualizarTabela();
             limparCampos();
             setBotoes(1);
         }
-    }//GEN-LAST:event_btnExcluirActionPerformed
+    }//GEN-LAST:event_btnTomadoActionPerformed
 
     private void tbRotinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbRotinaMouseClicked
         int linha = tbRotina.getSelectedRow();
@@ -318,9 +322,9 @@ public class RotinasView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnListar;
+    private javax.swing.JButton btnTomado;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
